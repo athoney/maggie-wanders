@@ -10,10 +10,10 @@ lines = [x.split(',') for x in lines]
 
 info = []
 for line in lines:
-    filename = line[0].split(':')[0]
-    # print(filename.split('.')[1])
+    filename = line[0].split(':')[0].split('/')[-1]
     file_obj = {}
     if filename.split('.')[1].lower() == 'jpg' or filename.split('.')[1].lower() == 'jpeg': 
+
         file_obj['src'] = '/images/gallery/' + filename.split('/')[-1]
         size = line[-2].split('x')
         file_obj['width'] = int(size[0])
