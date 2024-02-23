@@ -20,7 +20,7 @@ export default function FeaturedCard({ id, title, quote }) {
                     className='rounded-t-lg' >
                 </div> */}
                 <h1 className={`text-center font-bold text-2xl pt-3 ${roboto_mono.className}`}>{title}</h1>
-                <p className='text-center text-2xl'>"{quote}"</p>
+                <p className='text-center text-2xl'>&quot{quote}&quot</p>
             </Link>
         </div>
     )
