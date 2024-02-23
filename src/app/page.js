@@ -1,94 +1,44 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Hero from "@/app/components/Hero";
+import Cards from "@/app/components/Cards";
+import { promises as fs } from 'fs';
+import Card from "./components/Card";
+import { Suspense } from "react";
+import { SP } from "next/dist/shared/lib/utils";
+import dynamic from "next/dynamic";
 
-export default function Home() {
+const Spotify = dynamic(
+  () => import('./components/Spotify'),
+  // { loading: () => <p className="text-5xl">Loading...</p> },
+  { ssr: false }
+)
+
+
+
+export default async function Home() {
+  const file = await fs.readFile(process.cwd() + '/src/app/data.json', 'utf8');
+  const data = JSON.parse(file);
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="">
+      <Hero />
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-10">
+        <div className="col-span-2">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 justify-end md:gap-4">
+            <p className='md:col-span-2 text-left font-bold text-2xl md:-mb-4'>All Posts</p>
+
+            {data.posts.map((post) => {
+              return (
+                <Card key={post.id} id={post.id} title={post.title} date={post.date} paragraphs={post.paragraphs} />
+              )
+            })}
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div className="col-span-1">
+          <p className='text-left font-bold text-2xl'>Spotify</p>
+          <Suspense fallback={<p className="text-5xl">Loading...</p>}>
+            <Spotify />
+          </Suspense>
+        </div>
       </div>
     </main>
   );
