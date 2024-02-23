@@ -1,5 +1,5 @@
 #!/bin/bash
-for FILE in ~/Userdata/maggie-ventures/public/images/gallery/*;
+for FILE in ~../../public/images/gallery/*;
 do 
 	file $FILE;
 done
