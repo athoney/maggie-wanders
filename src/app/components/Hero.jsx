@@ -5,12 +5,11 @@ import Link from 'next/link';
 import Button from './Button';
 import FeaturedCard from './FeaturedCard';
 import { promises as fs } from 'fs';
+import {posts} from '@/app/data';
 
 
 export default async function Hero() {
-    const file = await fs.readFile(process.cwd() + '/src/app/data.json', 'utf8');
-    const data = JSON.parse(file);
-    const featured_post = data.posts[1];
+    const featured_post = posts[1];
     return (
         <div className=''>
             <Image src="/images/maggie-wanders.png" alt="Koala" width={900} height={300} className='rounded-lg mx-auto my-8'/>

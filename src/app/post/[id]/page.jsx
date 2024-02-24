@@ -6,10 +6,15 @@ import { promises as fs } from 'fs';
 import { notFound } from "next/navigation";
 import Button from "@/app/components/Button";
 import DOMPurify from "isomorphic-dompurify";
-import {getPost} from "@/middleware/api";
+import { posts } from "@/app/data";
 
 export default async function Page({ params }) {
-    const post = await getPost(params.id);
+    console.log(params.id)
+    const post = posts.find(post => post.id == params.id);
+    console.log(post)
+    if (post === undefined) {
+        return notFound();
+    }
     return (
         <div>
             <div className="mb-10">

@@ -5,12 +5,11 @@ import { Suspense } from "react";
 import { SP } from "next/dist/shared/lib/utils";
 import dynamic from "next/dynamic";
 import Spotify from "@/app/components/Spotify";
-import { getAllPosts } from "@/middleware/api";
+import {posts} from "@/app/data";
 
 
 
 export default async function Home() {
-  const data = await getAllPosts();
   return (
     <main className="">
       <Hero />
@@ -20,7 +19,7 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 justify-end md:gap-4">
             <p className='md:col-span-2 text-left font-bold text-2xl md:-mb-4'>All Posts</p>
 
-            {data.map((post) => {
+            {posts.map((post) => {
               return (
                 <Card key={post.id} id={post.id} title={post.title} date={post.date} paragraphs={post.paragraphs} />
               )
