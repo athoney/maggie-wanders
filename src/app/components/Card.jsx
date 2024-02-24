@@ -12,6 +12,7 @@ export default function Card({ id, title, date }) {
                 <div style={{
                     backgroundImage: `url(${background})`,
                     backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
                     width: '100%',
                     height: '400px',
                 }}

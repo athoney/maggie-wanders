@@ -9,9 +9,7 @@ import DOMPurify from "isomorphic-dompurify";
 import { posts } from "@/app/data";
 
 export default async function Page({ params }) {
-    console.log(params.id)
     const post = posts.find(post => post.id == params.id);
-    console.log(post)
     if (post === undefined) {
         return notFound();
     }
