@@ -1,22 +1,16 @@
 import Hero from "@/app/components/Hero";
 import Cards from "@/app/components/Cards";
-import { promises as fs } from 'fs';
 import Card from "./components/Card";
 import { Suspense } from "react";
 import { SP } from "next/dist/shared/lib/utils";
 import dynamic from "next/dynamic";
-
-const Spotify = dynamic(
-  () => import('./components/Spotify'),
-  // { loading: () => <p className="text-5xl">Loading...</p> },
-  { ssr: false }
-)
+import Spotify from "@/app/components/Spotify";
+import { getAllPosts } from "@/middleware/api";
 
 
 
 export default async function Home() {
-  const file = await fs.readFile(process.cwd() + '/src/app/data.json', 'utf8');
-  const data = JSON.parse(file);
+  const data = await getAllPosts();
   return (
     <main className="">
       <Hero />
@@ -26,7 +20,7 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 justify-end md:gap-4">
             <p className='md:col-span-2 text-left font-bold text-2xl md:-mb-4'>All Posts</p>
 
-            {data.posts.map((post) => {
+            {data.map((post) => {
               return (
                 <Card key={post.id} id={post.id} title={post.title} date={post.date} paragraphs={post.paragraphs} />
               )

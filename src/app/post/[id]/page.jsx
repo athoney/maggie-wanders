@@ -6,16 +6,10 @@ import { promises as fs } from 'fs';
 import { notFound } from "next/navigation";
 import Button from "@/app/components/Button";
 import DOMPurify from "isomorphic-dompurify";
+import {getPost} from "@/middleware/api";
 
 export default async function Page({ params }) {
-    const file = await fs.readFile(process.cwd() + '/src/app/data.json', 'utf8');
-    const data = JSON.parse(file);
-    let post = data.posts.filter(post => post.id == params.id);
-    if (post.length === 0) {
-        return notFound();
-    }
-    post = post[0];
-
+    const post = await getPost(params.id);
     return (
         <div>
             <div className="mb-10">
