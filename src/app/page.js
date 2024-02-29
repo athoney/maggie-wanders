@@ -14,7 +14,7 @@ import { roboto_mono } from "./fonts";
 export default async function Home() {
   return (
     <main className="">
-      <div className="bg-primary pt-8 md:pt-0 h-96 md:h-128 flex flex-col">
+      <div className="bg-primary pt-0 h-96 md:h-128 flex flex-col">
         {/* <Image src="/images/maggie-wanders.png" alt="Koala" width={800} height={300} className='rounded-lg' /> */}
         <Image src="/images/magdelana-sq.png" alt="Koala" width={250} height={250} className='rounded-full mx-auto w-36 md:w-64' />
         <h1 className={`mt-4 text-3xl md:text-6xl font-bold ${roboto_mono.className}`}>Maggie Wanders</h1>
