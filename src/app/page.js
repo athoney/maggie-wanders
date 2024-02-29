@@ -19,7 +19,7 @@ export default async function Home() {
         <Image src="/images/magdelana-sq.png" alt="Koala" width={250} height={250} className='rounded-full mx-auto w-36 md:w-64' />
         <h1 className={`mt-4 text-3xl md:text-6xl font-bold ${roboto_mono.className}`}>Maggie Wanders</h1>
         <div className="max-w-prose text-center mx-auto">
-          <p className="mt-4 md:mt-6 text-lg md:text-2xl w-5/6 md:w-100 mx-auto">A candid and engaging account of my study abroad experience in Australia, complete with practical advice, personal reflections, and my journey as a Gilman Scholar</p>
+          <p className="mt-4 md:mt-6 text-lg md:text-2xl w-5/6 md:w-100 mx-auto">A candid account of my study abroad experience in Australia, complete with practical advice, personal reflections, and my journey as a Gilman Scholar</p>
         </div>
       </div>
       <div className="w-5/6 mx-auto lg:mt-14">
