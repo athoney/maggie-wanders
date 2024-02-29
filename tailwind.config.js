@@ -5,6 +5,9 @@ export const content = [
 ];
 export const theme = {
   extend: {
+    spacing: {
+      '128': '32rem',
+    },
     colors: {
       primary: '#9ccc94',
     },

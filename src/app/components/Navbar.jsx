@@ -35,8 +35,9 @@ export default function Navbar() {
         <nav className="bg-primary px-10">
             <div className="flex flex-wrap items-center justify-between py-4">
                 {/* <span className="self-center text-3xl font-semibold whitespace-nowrap">MW</span> */}
-                <Image src="/images/mw.png" alt="logo" width={50} height={50} />
-
+                <Link href="/">
+                    <Image src="/images/mw.png" alt="logo" width={50} height={50} />
+                </Link>
                 <button onClick={toggleNavbar} data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden " aria-controls="navbar-default" aria-expanded="false">
                     <span className="sr-only">Open main menu</span>
                     <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -48,7 +49,7 @@ export default function Navbar() {
                         {links.map((link, index) => {
                             return (
                                 <li key={index} onClick={toggleNavbar}>
-                                    <Link href={link.url} className={`${(pathname ==  link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
+                                    <Link href={link.url} className={`${(pathname == link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
                                 </li>
                             )
                         })}

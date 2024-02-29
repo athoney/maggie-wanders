@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div className='text-center text-lg py-3 mt-14'>
+        <div className='text-center text-lg pb-3 mt-10'>
             <p className="">
                 Magdelana Moseley
             </p>
