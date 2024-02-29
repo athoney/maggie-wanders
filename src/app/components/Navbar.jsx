@@ -32,7 +32,7 @@ export default function Navbar() {
     return (
 
 
-        <nav className="bg-white border-b-2 border-black">
+        <nav className="bg-primary px-10">
             <div className="flex flex-wrap items-center justify-between py-4">
                 {/* <span className="self-center text-3xl font-semibold whitespace-nowrap">MW</span> */}
                 <Image src="/images/mw.png" alt="logo" width={50} height={50} />
@@ -44,11 +44,11 @@ export default function Navbar() {
                     </svg>
                 </button>
                 <div className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
-                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 bg-white ">
+                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
                         {links.map((link, index) => {
                             return (
                                 <li key={index} onClick={toggleNavbar}>
-                                    <Link href={link.url} className={`${(pathname ==  link.url) ? "text-white bg-primary md:text-primary " : "text-black "}block py-2 px-3  rounded md:bg-transparent  md:p-0 `}>{link.name}</Link>
+                                    <Link href={link.url} className={`${(pathname ==  link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
                                 </li>
                             )
                         })}

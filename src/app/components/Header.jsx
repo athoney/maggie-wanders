@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Header() {
     return (
-        <div className='text-center border-b-2 border-black flex items-end justify-between pt-10 pb-3'>
+        <div className='text-center border-b-2 border-black flex items-end justify-between pt-10 pb-3 '>
             <p className='text-slate-600'>
                 02-03-2024 8:36 ACDT
             </p>

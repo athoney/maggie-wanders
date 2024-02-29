@@ -17,7 +17,7 @@ export const posts = [
     {
         "id": 1,
         "title": "One less Wednesday",
-        "quote": "I think I can afford to lose a day or two",
+        "quote": "I think I can afford to lose a day or two  as long as I promise myself that I will not waste any more unnecessary time being scared",
         "date": "February 8, 2024",
         "paragraphs": [
             "It takes approximately 22 hours to get from Denver International Airport to Sydney International Airport and an additional 2 hours to get from Sydney in New South Wales to Adelaide in South Australia. And, because of the time difference, if you fly out on a Tuesday, as I did, you won't reach Australia until Thursday. I’ve taken many flights in which I lost or gained an hour, but I’ve never lost an entire day before. It’s a weird concept to grasp. I genuinely thought that it was time travel for a while (and I still have my suspicions). But regardless of whether the flight to Australia should be considered an X-File or not, it was still a profound episode in my life.",

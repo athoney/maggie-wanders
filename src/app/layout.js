@@ -1,5 +1,5 @@
 import { React } from "react";
-import {roboto_mono, raleway} from "@/app/fonts";
+import { roboto_mono, raleway } from "@/app/fonts";
 import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Maggie Wanders</title>
       </head>
-      <body className={`text-center ${raleway.className} w-5/6 xl:w-4/5 mx-auto text-base md:text-lg lg:text-xl`}>
+      <body className={`text-center ${raleway.className}  mx-auto text-base md:text-lg lg:text-xl`}>
         <Navbar />
         {children}
         <Footer />
