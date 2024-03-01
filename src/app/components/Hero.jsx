@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Button from './Button';
 import FeaturedCard from './FeaturedCard';
-import { promises as fs } from 'fs';
 import { posts } from '@/app/data';
 
 

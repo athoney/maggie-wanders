@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from './Card'
-import { promises as fs } from 'fs';
 
 
 export default async function Cards() {

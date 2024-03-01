@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image';
-import { motion, AnimatePresence, delay, stagger } from "framer-motion";
+import { motion } from "framer-motion";
 
 
 export default function Navbar() {
@@ -48,7 +48,9 @@ export default function Navbar() {
     return (
 
 
-        <nav className="bg-primary px-10">
+        <motion.nav
+            className="bg-primary px-10"
+        >
             <div className="flex flex-wrap items-center justify-between py-4">
                 {/* <span className="self-center text-3xl font-semibold whitespace-nowrap">MW</span> */}
                 <Link href="/">
@@ -60,31 +62,39 @@ export default function Navbar() {
                         <path stroke="black" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-                <AnimatePresence>
 
-                    {isOpen && <div className={`w-full md:block md:w-auto`} id="navbar-default">
-                        <motion.ul
-                            className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 "
-                            variants={ulVariants}
-                            initial="hidden"
-                            animate="show"
-                        >
-                            {links.map((link, index) => {
-                                return (
-                                    <motion.li
-                                        key={index}
-                                        onClick={toggleNavbar}
-                                        variants={item}
-                                    >
-                                        <Link href={link.url} className={`${(pathname == link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
-                                    </motion.li>
-                                )
-                            })}
-                        </motion.ul>
-                    </div>}
-                </AnimatePresence>
+                {isOpen && <div className={`w-full md:hidden md:w-auto`} id="navbar-default">
+                    <motion.ul
+                        className="font-medium flex flex-col p-4  mt-4   rtl:space-x-reverse  "
+                        variants={ulVariants}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        {links.map((link, index) => {
+                            return (
+                                <motion.li
+                                    key={index}
+                                    onClick={toggleNavbar}
+                                    variants={item}
+                                >
+                                    <Link href={link.url} className={`${(pathname == link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
+                                </motion.li>
+                            )
+                        })}
+                    </motion.ul>
+                </div>}
+
+                    <ul className='hidden md:flex md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0'>
+                        {links.map((link, index) => {
+                            return (
+                                <li key={index}>
+                                    <Link href={link.url} className={`${(pathname == link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
+                                </li>
+                            )
+                        })}
+                    </ul>
             </div>
-        </nav>
+        </motion.nav>
 
 
     )
