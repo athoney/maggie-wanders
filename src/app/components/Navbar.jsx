@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image';
+import { motion, AnimatePresence, delay, stagger } from "framer-motion";
+
 
 export default function Navbar() {
     //  track state of the navbar
@@ -29,6 +31,20 @@ export default function Navbar() {
         }
     ]
 
+    const ulVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    }
+    const item = {
+        hidden: { opacity: 0 },
+        show: { opacity: 1 }
+    }
+
     return (
 
 
@@ -44,17 +60,29 @@ export default function Navbar() {
                         <path stroke="black" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-                <div className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
-                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
-                        {links.map((link, index) => {
-                            return (
-                                <li key={index} onClick={toggleNavbar}>
-                                    <Link href={link.url} className={`${(pathname == link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+                <AnimatePresence>
+
+                    {isOpen && <div className={`w-full md:block md:w-auto`} id="navbar-default">
+                        <motion.ul
+                            className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 "
+                            variants={ulVariants}
+                            initial="hidden"
+                            animate="show"
+                        >
+                            {links.map((link, index) => {
+                                return (
+                                    <motion.li
+                                        key={index}
+                                        onClick={toggleNavbar}
+                                        variants={item}
+                                    >
+                                        <Link href={link.url} className={`${(pathname == link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
+                                    </motion.li>
+                                )
+                            })}
+                        </motion.ul>
+                    </div>}
+                </AnimatePresence>
             </div>
         </nav>
 
