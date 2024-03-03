@@ -1,10 +1,10 @@
 import React from 'react'
-import { raleway, roboto_mono } from "@/app/fonts";
+import { raleway, roboto_mono } from "../fonts";
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from './Button';
 import FeaturedCard from './FeaturedCard';
-import { posts } from '@/app/data';
+import { posts } from '@/data';
 
 
 export default async function Hero() {

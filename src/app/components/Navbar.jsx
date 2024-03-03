@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 export default function Navbar() {
@@ -30,6 +30,18 @@ export default function Navbar() {
             "url": "/gallery"
         }
     ]
+
+    const ulVariants2 = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 1
+                
+            }
+        }
+    }
 
     const ulVariants = {
         hidden: { opacity: 0 },
@@ -84,15 +96,20 @@ export default function Navbar() {
                     </motion.ul>
                 </div>}
 
-                    <ul className='hidden md:flex md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0'>
+                <AnimatePresence>
+                    <motion.ul className='hidden md:flex md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0'
+                        variants={ulVariants2}
+                        initial="hidden"
+                        animate="show">
                         {links.map((link, index) => {
                             return (
-                                <li key={index}>
+                                <motion.li key={index} variants={item}>
                                     <Link href={link.url} className={`${(pathname == link.url) ? "text-white bg-primary md:text-white " : "text-black "}block py-2 px-3  rounded md:bg-transparent xl:text-2xl  md:p-0 `}>{link.name}</Link>
-                                </li>
+                                </motion.li>
                             )
                         })}
-                    </ul>
+                    </motion.ul>
+                </AnimatePresence>
             </div>
         </motion.nav>
 

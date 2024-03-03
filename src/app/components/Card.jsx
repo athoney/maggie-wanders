@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import { roboto_mono } from "@/app/fonts";
+import { roboto_mono } from "../fonts";
 import Link from 'next/link';
 
 export default function Card({ id, title, date }) {

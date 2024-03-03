@@ -1,5 +1,5 @@
 import React from 'react'
-import { roboto_mono } from "@/app/fonts";
+import { roboto_mono } from "../fonts";
 import Image from 'next/image';
 
 export default function HeroAbout() {

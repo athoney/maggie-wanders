@@ -2,11 +2,11 @@
 import React, { Suspense } from "react";
 import Link from "next/link";
 import Image from 'next/image';
-import { roboto_mono, raleway } from "@/app/fonts";
+import { roboto_mono, raleway } from "../../fonts";
 import { notFound } from "next/navigation";
 import Button from "@/app/components/Button";
 import DOMPurify from "isomorphic-dompurify";
-import { posts } from "@/app/data";
+import { posts } from "../../data";
 import { motion, useScroll } from "framer-motion";
 
 export default async function Page({ params }) {
@@ -46,7 +46,7 @@ export default async function Page({ params }) {
                 </motion.div>
             </div>
             <Button text="Return Home" link="/" />
-            <motion.div style={{ scaleX: scrollYProgress}} className="h-2 bg-primary fixed bottom-0 left-0 right-0"/>  
+            <motion.div style={{ scaleX: scrollYProgress}} className="h-3 bg-primary fixed bottom-0 left-0 right-0"/>  
         </div >
     )
 }

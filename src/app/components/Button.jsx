@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { roboto_mono } from "@/app/fonts";
+import { roboto_mono } from "../fonts";
+
 
 export default function Button({ text, link }) {
   return (

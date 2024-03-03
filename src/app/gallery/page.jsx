@@ -4,7 +4,7 @@ import { roboto_mono } from '../fonts'
 import { Gallery } from "react-grid-gallery";
 import { images } from "@/app/components/images";
 import Button from "@/app/components/Button";
-import "@/app/gallery.css"
+import "../gallery.css"
 import Image from 'next/image';
 
 // lazy load image component

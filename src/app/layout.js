@@ -1,5 +1,5 @@
 import { React } from "react";
-import { roboto_mono, raleway } from "@/app/fonts";
+import { roboto_mono, raleway } from "./fonts";
 import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
