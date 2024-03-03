@@ -5,8 +5,11 @@ export const content = [
 ];
 export const theme = {
   extend: {
+    spacing: {
+      '128': '32rem',
+    },
     colors: {
-      primary: '#82b378',
+      primary: '#9ccc94',
     },
   },
 };
