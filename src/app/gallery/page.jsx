@@ -17,7 +17,7 @@ const LazyImage = (props) => {
 export default function page() {
 
     return (
-        <div>
+        <div className=''>
             <div className="bg-primary pt-8 sm:pt-0 h-36 md:h-36 flex flex-col mb-0 sm:mb-8">
 
                 <h1 className={`text-6xl font-bold  ${roboto_mono.className}`}>Gallery</h1>

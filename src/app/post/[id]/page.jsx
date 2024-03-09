@@ -32,7 +32,7 @@ export default async function Page({ params }) {
                     {/* <h1 className={`text-3xl md:text-6xl font-bold ${roboto_mono.className} mt-5 md:mt-10`}>{post.title}</h1> */}
 
                     <Suspense fallback={<div className="w-100 bg-slate-500"></div>}>
-                        <Image src={`/images/post${post.id}.png`} alt="Passport" width={500} height={300} className=' mx-auto mt-5 sm:mt-10' priority="true" />
+                        <Image src={`/images/post${post.id}.webp`} alt="Passport" width={500} height={300} className=' mx-auto mt-5 sm:mt-10' priority="true" />
                     </Suspense>
                     <div className="text-lg xl:text-xl text-start max-w-prose mx-auto">
                         <p className="mt-5 md:mt-10 text-start text-slate-500 text-lg xl:text-xl">{post.date}</p>
